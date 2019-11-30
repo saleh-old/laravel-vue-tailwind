@@ -39,7 +39,7 @@
                                 autocomplete="current-password" required
                             >
                             @error('password')
-                            <p class="text-red-500 text-xs italic">{{ $message }}</p>
+                            <p class="mt-2 text-red-500 text-xs italic">{{ $message }}</p>
                             @enderror
                         </div>
 
