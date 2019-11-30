@@ -9,6 +9,9 @@ mix.js('resources/js/app.js', 'public/js')
         postCss: [tailwindcss('tailwind.config.js')],
     });
 
+// send notifications only on errors
+mix.disableSuccessNotifications();
+
 if (mix.inProduction()) {
     mix.version()
 }
