@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+{{ __('Reset Password') }}
+@endsection
+
 @section('content')
     <div class="flex justify-center h-full py-10">
         <div class="w-full max-w-xl mt-24 mx-4">
