@@ -2,6 +2,10 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+import Vuex from 'vuex';
+Vue.use(Vuex);
+import store from './store'
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -15,4 +19,5 @@ files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(
 
 const app = new Vue({
     el: '#app',
+    store
 });
