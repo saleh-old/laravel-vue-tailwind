@@ -15,3 +15,5 @@ env.py
 /storage/*.sqlite
 .DS_Store
 /.vagrant
+/public/mix-manifest.json
+package-lock.json
