@@ -15,6 +15,7 @@ class AuthenticationTest extends TestCase
     public function a_user_can_register()
     {
         $response = $this->get('/register');
+
         $response->assertSee('Sign Up');
 
         $response = $this->post('/register', [
@@ -32,25 +33,20 @@ class AuthenticationTest extends TestCase
     /** @test */
     public function a_user_can_login()
     {
-        // register
-        $response = $this->post('/register', [
+        $user = create(User::class, [
             'name' => 'tester',
             'email' => 'me@example.com',
-            'password' => 'example-password',
-            'password_confirmation' => 'example-password'
+            'password' => bcrypt('example-password'),
         ]);
-        $response->assertRedirect('/');
-        $this->assertAuthenticated();
-
-        // logout
-        $this->post('/logout');
 
         // log in
         $response = $this->post('/login', [
-            'email' => 'me@example.com',
+            'email' => $user->email,
             'password' => 'example-password',
         ]);
+
         $response->assertRedirect('/');
+
         $this->assertAuthenticated();
     }
 }
