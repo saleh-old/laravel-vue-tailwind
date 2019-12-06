@@ -1,10 +1,8 @@
-require('./bootstrap');
+require("./bootstrap");
 
-window.Vue = require('vue');
+window.Vue = require("vue");
 
-import Vuex from 'vuex';
-Vue.use(Vuex);
-import store from './store'
+import store from "./store";
 
 /**
  * The following block of code may be used to automatically register your
@@ -13,11 +11,19 @@ import store from './store'
  *
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
-const files = require.context('./', true, /\.vue$/i);
-files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
+const files = require.context("./", true, /\.vue$/i);
+files.keys().map(key =>
+    Vue.component(
+        key
+            .split("/")
+            .pop()
+            .split(".")[0],
+        files(key).default
+    )
+);
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
 const app = new Vue({
-    el: '#app',
+    el: "#app",
     store
 });
