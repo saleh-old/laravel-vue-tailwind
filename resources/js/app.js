@@ -25,5 +25,8 @@ files.keys().map(key =>
 
 const app = new Vue({
     el: "#app",
+    data: {
+        sampleModal: false
+    }, 
     store
 });
